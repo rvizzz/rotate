@@ -1,6 +1,8 @@
 # rotate
 Create recursive image rotation animations
 
+Example animation: https://www.reddit.com/r/compsci/comments/izy2kf/rotating_an_image_recursively_one_of_my_favorite/
+
 Usage: rotate.py <input_image> <output_file>
 
 NOTE: The input image must have dimensions N x N where N is a power of 2.
