@@ -48,7 +48,8 @@ def yes_or_no(question):
 
 if len(sys.argv) != 3:
     print("Usage: rotate.py <input_image> <output_file>")
-    print("Note that the image must have dimensions N x N where N is a power of 2")
+    print("Valid output formats include .m4a .mp4 .mov .avi")
+    print("Note that the image should have dimensions N x N where N is a power of 2")
     sys.exit()
 
 
