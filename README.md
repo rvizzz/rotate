@@ -21,13 +21,13 @@ An animation can be generated using the `rotate.py` or `transform.py` file.
 
 #### Arguments:
 
-`python3.7 rotate.py <input_image> <output_file>`
+`python3.7 rotate.py <input_image.png> <output_file.mp4>`
 
 ### transform&#46;py
 
 #### Arguments:
 
-`transform.py <input_image.png> <output_file.mp4> optional: <transform_type>`
+`python3.7 transform.py <input_image.png> <output_file.mp4> optional: <transform_type>`
 
 #### Transform Types:
 
