@@ -40,11 +40,14 @@ def is_power_of_two(n):
 
 def yes_or_no(question):
     while True:
-        reply = str(input(question+' (y/n): ')).lower().strip()
-        if reply[0] == 'y':
-            return True
-        if reply[0] == 'n':
-            return False
+        try:
+            reply = str(input(question+' (y/n): ')).lower().strip()
+            if reply[0] == 'y':
+                return True
+            if reply[0] == 'n':
+                return False
+        except:
+            pass
 
 if len(sys.argv) != 3:
     print("Usage: rotate.py <input_image> <output_file>")
