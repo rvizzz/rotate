@@ -77,7 +77,7 @@ file_name = sys.argv[1]
 image = cv.imread(file_name)
 
 #check if image is of the right size
-if not is_power_of_two(min(image.shape[0], image.shape[1])):
+if not (is_power_of_two(image.shape[0]) and image.shape[0] == image.shape[1]):
     print("The image you have provided does not have dimensions N x N where N is a power of 2.")
     closest_valid_dimension = 2**round(math.log(min(image.shape[0], image.shape[1]), 2))
     #prompt user to either resize image to closest NxN where N is a power of 2
@@ -95,10 +95,8 @@ img_dim = image.shape[0]
 out_file_name = sys.argv[2]
 out = cv.VideoWriter(out_file_name, cv.VideoWriter_fourcc('m','p','4','v'), 30, (img_dim, img_dim))
 
-for i in range(30):
-    out.write(image)
 
-#rotate the image 4 times
+#transform the image 4 times
 if transform_type < 3:
     for rotations in range(4):
 
@@ -179,8 +177,6 @@ else:
             image = np.copy(output_canvas)
             width = width // 2
 
-for i in range(30):
-    out.write(image)
 
 out.release()
 

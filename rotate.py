@@ -61,7 +61,7 @@ file_name = sys.argv[1]
 image = cv.imread(file_name)
 
 #check if image is of the right size
-if not is_power_of_two(min(image.shape[0], image.shape[1])):
+if not (is_power_of_two(image.shape[0]) and image.shape[0] == image.shape[1]):
     print("The image you have provided does not have dimensions N x N where N is a power of 2.")
     closest_valid_dimension = 2**round(math.log(min(image.shape[0], image.shape[1]), 2))
     #prompt user to either resize image to closest NxN where N is a power of 2
