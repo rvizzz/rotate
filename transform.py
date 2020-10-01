@@ -43,13 +43,28 @@ def h_flip_with_steps(img, output, x, width, shift):
     output[0:img_dim, x + shift:x + width + shift] = img[0:img_dim, x:x + width]
     output[0:img_dim, x + width - shift:x + 2 * width - shift] = img[0:img_dim, x + width:x + 2 * width]
 
+def is_power_of_two(n):
+    return (n != 0) and (n & (n-1) == 0)
+
+def yes_or_no(question):
+    while True:
+        try:
+            reply = str(input(question+' (y/n): ')).lower().strip()
+            if reply[0] == 'y':
+                return True
+            if reply[0] == 'n':
+                return False
+        except:
+            pass
+
 if len(sys.argv) < 3:
     print("Usage: transform.py <input_image.png> <output_file.mp4> optional: <transform_type>")
     print("\t transform_type = 0: rotation")
     print("\t transform_type = 1: vertical flip")
     print("\t transform_type = 2: horizontal flip")
     print("\t transform_type = 3: vertical+horizontal flip")
-    print("Note that the image must have dimensions N x N where N is a power of 2")
+    print("Valid output formats include .m4a .mp4 .mov .avi")
+    print("Note that the image should have dimensions N x N where N is a power of 2")
     sys.exit()
 
 transform_type = 0
@@ -60,6 +75,20 @@ if len(sys.argv) >= 4:
 #read in the image
 file_name = sys.argv[1]
 image = cv.imread(file_name)
+
+#check if image is of the right size
+if not is_power_of_two(min(image.shape[0], image.shape[1])):
+    print("The image you have provided does not have dimensions N x N where N is a power of 2.")
+    closest_valid_dimension = 2**round(math.log(min(image.shape[0], image.shape[1]), 2))
+    #prompt user to either resize image to closest NxN where N is a power of 2
+    if yes_or_no("Would you like to try to automatically resize this image to the closest functional dimensions: {}x{}?".format(closest_valid_dimension, closest_valid_dimension)):
+        image = cv.resize(image, (closest_valid_dimension, closest_valid_dimension))
+    else:
+        #user does not want to resize
+        #since program does not run with improperly sized images, exit
+        print("Exiting...")
+        sys.exit()
+
 img_dim = image.shape[0]
 
 #make a video writer
