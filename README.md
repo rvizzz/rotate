@@ -1,5 +1,5 @@
 # rotate
-Create recursive image transformation animations
+Create recursive image transformation and even animations
 
 Full demo animation on my Twitter:
 
