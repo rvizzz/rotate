@@ -2,6 +2,9 @@
 # rotate
 Create recursive image transformation animations
 
+![image transformation animations](https://github.com/Jetsukda/rotate/blob/master/image%20transformation%20animations.gif)
+
+
 Full demo animation on my Twitter:
 https://twitter.com/r_vizzz/status/1311425342310092800?s=20
 
