@@ -96,14 +96,13 @@ out_file_name = sys.argv[2]
 out = cv.VideoWriter(out_file_name, cv.VideoWriter_fourcc('m','p','4','v'), 30, (img_dim, img_dim))
 
 
-#transform the image 4 times
 if transform_type < 3:
     for rotations in range(4):
 
         width = img_dim // 2
         number_of_frames = 2 * int(math.log2(img_dim))
 
-        while width > 1:
+        while width > 0:
             
             number_of_frames -= 2
             number_of_frames = max(1, number_of_frames)
@@ -137,7 +136,7 @@ else:
         width = img_dim // 2
         number_of_frames = 2 * int(math.log2(img_dim))
 
-        while width > 1:
+        while width > 0:
             
             number_of_frames -= 2
             number_of_frames = max(1, number_of_frames)

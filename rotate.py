@@ -85,7 +85,7 @@ for rotations in range(4):
     width = img_dim // 2
     number_of_frames = 2 * int(math.log2(img_dim))
 
-    while width > 1:
+    while width > 0:
         
         number_of_frames -= 2
         number_of_frames = max(1, number_of_frames)
