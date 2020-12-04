@@ -1,6 +1,6 @@
 
 # rotate
-Create recursive image transformation animations
+Create recursive image transformation and even animations
 
 Full demo animation on my Twitter:
 https://twitter.com/r_vizzz/status/1311425342310092800?s=20
